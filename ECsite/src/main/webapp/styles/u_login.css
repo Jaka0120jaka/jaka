@@ -1,0 +1,446 @@
+@import url(https://use.fontawesome.com/releases/v6.4.2/css/all.css);
+/* ベーススタイル */
+body.auth-page {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-image 0.5s ease-in-out;
+    background-image: url("../image/day_night2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* ダークテーマ用背景 */
+body.auth-page.dark {
+    background-image: url("../image/day_night22.jpg");
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgb(255, 255, 255, 0.6);
+    border-radius: 12px;
+	box-shadow: 0 4px 20px rgb(0, 255, 255, 0.4); 
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.panel-title {
+    font-size: 44px;
+	text-align: center;
+    margin-bottom: 80px;
+	background: linear-gradient(to left, rgb(128, 0, 255), rgb(0, 255, 255));
+	color: transparent;
+	background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.input-wrapper {
+    position: relative;
+	display: flex;
+}
+
+.icons{
+	font-size: 28px;
+	margin-right: 10px;
+	margin-top: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.checkbox-wrapper{
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.checkbox-text{
+	font-size: 12px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.input-feedback {
+    font-size: 12px;
+    color: red;
+    margin-top: 4px;
+}
+
+.auth-submit-btn {
+    width: 100%;
+    background: linear-gradient(to left, rgb(128, 0, 255), rgb(0, 255, 255));
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.auth-submit-btn:hover {
+    transform: scale(1.07);
+}
+
+.panel-footer .switch-panel-btn button{
+	border: 1px solid blue;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: 600;
+	background: linear-gradient(to left, rgb(128, 0, 255), rgb(0, 255, 255));
+	color: transparent;
+	background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	padding: 12px;
+	width: 100%;
+	margin-top: 12px;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+.panel-footer .switch-panel-btn button:hover{
+	transform: scale(1.07);
+}
+
+.panel-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.switch-panel-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.switch-panel-btn {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.switch-panel-btn:hover {
+    text-decoration: underline;
+}
+
+/* ライト・ダークテーマ切り替え */
+
+body.auth-page.dark .auth-container {
+    background: rgb(0, 0, 0, 0.6);
+	color: white;
+	box-shadow: 0 4px 20px rgb(0, 255, 255, 1); 
+}
+
+body.auth-page.dark .form-input {
+    background-color: #2c2c2c;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+body.auth-page.dark .auth-submit-btn {
+    background: linear-gradient(to left, rgb(128, 0, 255), rgb(0, 255, 255));
+}
+
+body.auth-page.dark .auth-submit-btn:hover {
+	opacity: 0.8;
+}
+
+/* トップの言語 & テーマ切り替え */
+.header-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* エラーメッセージ */
+.error-message {
+    display: flex;
+    align-items: center;
+    background-color: #ffdddd;
+    color: #a94442;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 6px;
+	margin-bottom: 20px;
+}
+
+.error-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+
+
+/* ------------ VARIABLES ------------ */
+:root{
+  /* COLORS */
+  --color: #9176FF;
+  --dark-color: #2b2b2b;
+  --dark-icon-color: #fff;
+  --light-color: #f7f7f7;
+  --light-icon-color: #FFDE59;
+}
+
+
+/* -------------- BUTTON -------------- */
+.btn{
+	transform: scale(0.8);
+  background-color: #fff;
+  width: 5em; 
+    height: 2.67em;
+    border-radius: 3.33em;
+    padding: 0 0.17em;
+
+  box-shadow: inset 0 8px 60px rgba(0,0,0, .1),
+              inset 0 8px 8px rgba(0,0,0, .1),
+              inset 0 -4px 4px rgba(0,0,0, .1);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn__indicator{
+  background-color: #fff;
+  width: 2.33em;
+  height: 2.33em;
+  border-radius: 50%;
+
+  position: absolute;
+
+  box-shadow: 0 8px 40px rgba(0,0,0, .2);
+
+  transition: transform .3s ease;
+  
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__icon-container{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn__icon{
+  color: var(--light-icon-color);
+  font-size: 1rem;
+}
+
+/* -------------- ANIMATION ------------ */
+.btn__icon.animated{
+  animation: spin 0.5s;
+}
+
+@keyframes spin{
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------- DARKMODE -------------- */
+body.darkmode{
+  background-color: var(--dark-color);
+}
+
+.darkmode .btn{
+  box-shadow: inset 0 8px 60px rgba(0,0,0, .3),
+              inset 8px 0 8px rgba(0,0,0, .3),
+              inset 0 -4px 4px rgba(0,0,0, .3);
+}
+
+.darkmode .btn__indicator{
+  transform: translateX(2.7em);
+  background-color: darkblue;
+  box-shadow: 0 8px 40px rgba(0,0,0, .3);
+}
+
+.darkmode .btn__icon{
+  color: var(--dark-icon-color);
+}
+
+/*Nudnii icon*/
+.password-toggle ion-icon {
+  color: rgb(0, 0, 0);
+}
+
+body.darkmode .password-toggle ion-icon {
+  color: rgb(255, 255, 255);
+}
+/*icon darkMode*/
+
+.codetheworld-io{
+	margin-top: 40px;
+	display: flex;
+	margin-left: 100px;
+}
+
+.codetheworld-io a{
+	margin: 0 10px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	background: #fff;
+	width: 50px;
+	height: 50px;  
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	transition: 0.5s;
+	background: rgba(0, 0, 0, 0);
+	color: var(--color);
+	font-size: 1.25em;
+	-webkit-box-reflect: below 5px linear-gradient(to
+	bottom, rgba(0, 0, 0, 0, 0), rgba(0, 0, 0, 0, 4));
+}
+
+.codetheworld-io a:hover{
+	background-color: var(--color);
+	color: #050801;
+	box-shadow: 0 0 5px var(--color),
+	0 0 25px var(--color)
+	0 0 50px var(--color),
+	0 0 200px var(--color);
+}
+
+/*pass aa martsan bol iishee*/
+.forgot-pass{
+	font-size: 16px;
+	text-align: right;
+	margin-top: 20px;
+	perspective: 800px;
+}
+
+.forgot-pass p a{
+	margin-left: 5px;
+	transition: 0.6s ease;
+		display: inline-block;
+		transform-style: preserve-3d;
+}
+
+.forgot-pass p a:hover{
+	transform: scale(1.1) rotateX(360deg);
+}
+
+/*cal-logo zuun deed zurag*/
+.cal-logo{
+	margin: 20px;
+	padding: 0;
+	position: absolute;
+}
+
+.cal-logo img{
+	height: 80px;
+	width: 80px;
+	cursor: pointer;
+	transition: 0.7s ease;
+}
+
+.cal-logo img:hover{
+	transform: scale(1.2) rotateY(360deg);
+	
+}
+/*language button*/
+
+.language-switcher {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+
+.lang-label {
+  margin-right: 8px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+body.darkmode .lang-label{
+	color: white;
+}
+
+.lang-select {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-select:hover {
+  border-color: #999;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.lang-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/*footer*/
+.signup-footer{
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.footer-link{
+	margin: 20px;
+	color: rgb(0, 0, 0);
+	cursor: pointer;
+	transition: 0.3s ease;
+	text-decoration: none;
+}
+
+.footer-link:hover{
+	color: blue;
+}
+
+body.darkmode .footer-link{
+	color: rgb(255, 255, 255);
+	transition: 0.3s ease;
+}
+
+body.darkmode .footer-link:hover{
+	color: red;
+}
